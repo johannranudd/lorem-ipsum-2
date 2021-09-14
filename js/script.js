@@ -25,8 +25,10 @@ function returnFn() {
     listItem.innerHTML = text[i];
     ul.appendChild(listItem);
   }
-  if (value > text.length || value <= 0 || !value) {
+  if (value > text.length || value <= 0 || value === 1 || !value) {
     const random = Math.floor(Math.random() * text.length);
     ul.innerHTML = `<li>${text[random]}</li>`;
   }
 }
+
+// can also use .slice();
