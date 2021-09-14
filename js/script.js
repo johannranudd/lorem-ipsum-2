@@ -18,6 +18,15 @@ const ul = document.querySelector(".ul");
 btn.addEventListener("click", returnFn);
 
 function returnFn() {
-  const value = input.value;
-  ul.innerHTML = `<li>${text[value]}</li>`;
+  ul.innerHTML = "";
+  let value = parseInt(input.value);
+  for (let i = 0; i < value; i++) {
+    const listItem = document.createElement("li");
+    listItem.innerHTML = text[i];
+    ul.appendChild(listItem);
+  }
+  if (value > text.length || value <= 0 || !value) {
+    const random = Math.floor(Math.random() * text.length);
+    ul.innerHTML = `<li>${text[random]}</li>`;
+  }
 }
